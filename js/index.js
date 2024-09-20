@@ -1,4 +1,4 @@
-// Existing animation code
+// Existing title animation code
 const title = document.querySelector('.title');
 const text = 'I Have Something'.split('');
 for (let index = 0; index < text.length; index++) {
@@ -15,15 +15,8 @@ textElements.forEach((element) => {
   element.style.animationDelay = `${randomDelay}s`;
 });
 
-// Sound and navigation logic
-document.getElementById('openButton').addEventListener('click', function(event) {
-  event.preventDefault(); // Prevent immediate navigation
-
+// Play sound when the button is clicked
+document.getElementById('openButton').addEventListener('click', function() {
   const sound = document.getElementById('clickSound');
   sound.play(); // Play the sound
-
-  // Wait for the sound to finish before navigating (47 seconds)
-  sound.onended = function() {
-    window.location.href = 'flower.html'; // Redirect to the new page after sound ends
-  };
 });
