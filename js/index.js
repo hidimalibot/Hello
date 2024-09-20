@@ -15,8 +15,9 @@ textElements.forEach((element) => {
   element.style.animationDelay = `${randomDelay}s`;
 });
 
-// Play sound when the button is clicked
+// Play sound when the button is clicked and still allow the page to navigate
 document.getElementById('openButton').addEventListener('click', function() {
   const sound = document.getElementById('clickSound');
   sound.play(); // Play the sound
+  // Allow the page to navigate to flower.html (default anchor behavior)
 });
