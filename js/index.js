@@ -15,9 +15,17 @@ textElements.forEach((element) => {
   element.style.animationDelay = `${randomDelay}s`;
 });
 
-// Play sound when the button is clicked and still allow the page to navigate
-document.getElementById('openButton').addEventListener('click', function() {
+// Play sound when the button is clicked and save the current sound state before navigating
+document.getElementById('openButton').addEventListener('click', function(event) {
+  event.preventDefault(); // Prevent immediate navigation
   const sound = document.getElementById('clickSound');
   sound.play(); // Play the sound
-  // Allow the page to navigate to flower.html (default anchor behavior)
+
+  // Store the current sound time in sessionStorage
+  sessionStorage.setItem('soundTime', sound.currentTime);
+
+  // Redirect to the next page after a slight delay
+  setTimeout(function() {
+    window.location.href = "flower.html"; // Navigate to flower.html
+  }, 500); // Delay of 500ms to ensure sound starts playing
 });

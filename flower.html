@@ -315,9 +315,29 @@
   </div>
 
   <!-- Title -->
+  <!-- Title -->
   <h1 class="title"><span id="title"></span></h1>
-</body>
 
+  <!-- Audio element to play the sound -->
+  <audio id="clickSound" src="sounds/sound.mp3" autoplay></audio>
+
+  <script src="js/main.js"></script>
+  <script>
+    // Retrieve the sound time from sessionStorage
+    const soundTime = sessionStorage.getItem('soundTime');
+
+    // Get the audio element
+    const sound = document.getElementById('clickSound');
+
+    // If there was a stored time, resume from that point
+    if (soundTime !== null) {
+      sound.currentTime = parseFloat(soundTime);
+    }
+
+    // Play the sound (autoplay is already set in the HTML, but this ensures it continues)
+    sound.play();
+  </script>
+</body>
 </html>
 
 <!-- Import Javascript -->
